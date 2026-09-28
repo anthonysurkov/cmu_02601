@@ -56,3 +56,6 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 (9) Plotting modules (Not assigned)
 - Takes: y_val, y vectors from Downloaded CSV, (8)'s model predictions
 - Outputs: Scatterplots of model performance; model diagnostics
+
+# References
+1. Carlin DA, Hapig-Ward S, Chan BW, Damrau N, Riley M, Caster RW, et al. Thermal stability and kinetic constants for 129 variants of a family 1 glycoside hydrolase reveal that enzyme activity and stability can be separately designed. PLOS ONE. 2017 May 22;12(5). doi:10.1371/journal.pone.0176255.
