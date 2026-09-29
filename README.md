@@ -24,7 +24,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Inputs: list[str] of homologous BglB enzyme sequences
 - Outputs: (type unknown) amino-acid substitution model for use with ASR
 
-(3b) ASR (Not assigned)
+(3b) ASR (Anushka - not started)
 - Inputs: list[str] of homologous BglB enzyme sequences, amino-acid substitution model
 - Outputs: list[Node | str] of extant and ancestral BglB enzyme sequences (flattened from tree)
 
@@ -53,7 +53,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: torch.utils.data.Dataset objects
 - Outputs: XGBoost (or other) models (.pt)
 
-(9) Plotting modules (Not assigned)
+(9) Plotting modules (Anushka - not started)
 - Takes: y_val, y vectors from Downloaded CSV, (8)'s model predictions
 - Outputs: Scatterplots of model performance; model diagnostics
 
