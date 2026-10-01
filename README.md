@@ -5,10 +5,10 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 
 ## Project management:
 ### Basics
-(0) Basic infrastructure (Not assigned)
+(0) Basic infrastructure (Anthony - not started)
 - References (e.g. canonical protein reference), caching, path management
 
-(0a) Visualization (Not assigned)
+(0a) Visualization (ChatGPT lol - not started)
 - Protein rotation gifs with proposed mutations highlighted (most protein sim software can do this)
 
 ### Mutation Selection
