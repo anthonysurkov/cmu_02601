@@ -41,11 +41,11 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Outputs: dict[int, str] of cross-referenced mutations thought to be viable for both thermostability and ASR
 
 ### Machine Learning
-(6) Feature modules (Not assigned)
+(6) Feature modules (Anthony - not started)
 - Takes: Downloaded CSV from D2D database OR proposed mutations from (5)
 - Outputs: Feature cache of ProtBERT descriptors per protein sequence provided
 
-(7) D2D BglB database truth-modules (Not assigned)
+(7) D2D BglB database truth-modules (Anthony - not started)
 - Takes: Feature cache from (6)
 - Outputs: normalized torch.utils.data.Dataset objects for model training, canonical train/test splits
 
