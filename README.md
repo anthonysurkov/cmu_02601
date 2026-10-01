@@ -16,7 +16,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability 
 
-(2) BLAST API wrapper (Not assigned)
+(2) BLAST API wrapper (Vaishnavi - not started)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: list[str] of homologous BglB enzyme sequences
 
@@ -36,7 +36,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 - Outputs: dict[int, str] of all positions strongly conserved in ASR (residue agreement within some parameter theta)
 
-(5) Final decision algorithm (Not assigned)
+(5) Final decision algorithm (Vaishnavi - not started)
 - Takes: dict[int, str] of all mutation positions and amino acids, dict[int, str] of conserved positions
 - Outputs: dict[int, str] of cross-referenced mutations thought to be viable for both thermostability and ASR
 
@@ -49,7 +49,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: Feature cache from (6)
 - Outputs: normalized torch.utils.data.Dataset objects for model training, canonical train/test splits
 
-(8) Training & eval modules (Not assigned)
+(8) Training & eval modules (Vaishnavi (if anyone else wants to join on this and debate models w me) - not started)
 - Takes: torch.utils.data.Dataset objects
 - Outputs: XGBoost (or other) models (.pt)
 
