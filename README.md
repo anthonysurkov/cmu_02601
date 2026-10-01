@@ -32,7 +32,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: list[str] of extant and ancestral BglB enzyme sequences
 - Outputs: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 
-(4a) Alignment decision algorithm (Not assigned)
+(4a) Alignment decision algorithm (Vaishnavi - not started)
 - Takes: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 - Outputs: dict[int, str] of all positions strongly conserved in ASR (residue agreement within some parameter theta)
 
