@@ -1,0 +1,3 @@
+paths:
+  data_dir: "data"
+  cache_dir: "data/cache"
