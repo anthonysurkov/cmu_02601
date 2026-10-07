@@ -1,4 +1,4 @@
-Variant,Expressed?,Yield (mg/mL),KM (mM),KM SD,kcat (1/min),kcat SD,kcat/KM (1/mM min),kcat/KM SD,T50 (°C),T50 SD,Tm (°C),Tm SD,Rosetta score,Institution
+Variant,Expressed,Yield (mg/mL),KM (mM),KM SD,kcat (1/min),kcat SD,kcat/KM (1/mM min),kcat/KM SD,T50 (C),T50 SD,Tm (C),Tm SD,Rosetta score,Institution
 WT,yes,not reported,5,0.2,720.886,8.65929,144.177,6.0615,39.93,0.09,45.21,1.27,,UC Davis
 WT,yes,0.207,5.70093,0.381149,707.704,12.6155,124.138,8.5895,,,,,,UC Davis
 WT,yes,1.03,4.42341,0.835706,666.714,32.0148,150.724,29.3813,,,,,,UC Davis
