@@ -1,26 +1,38 @@
 # 02601 CMU: Semester Project
 ### Proposal:
 https://docs.google.com/document/d/1CBZraYHg-huKTE3e-L1dlmMjN-Q35B27imOgkhhG3mA/edit?usp=sharing
-Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli 
+Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
+
+## Style Guide:
+- 80 chars/line (put `set colorcolumn=81` in .vimrc). Wrap longer signatures and calls with parentehses.
+- Use `snake_case` for functions, variables, parameters; `PascalCase` for classes; and `UPPER_SNAKED_CASE` for constants.
+- Start function names with an action if possible: `get_features`, `filter`, `plot`, etc. Prefix internal helpers with `_` (e.g. `_get_uid`)
+- Use double quotes for strings.
+- Group imports by Python natives, third party software, and in-house files with one line of indentation in between each.
+- Maintain 2 lines of indentation before and after class definitions, and after imports.
+- Use pathlib (Path) for file references. Refer to paths.py and config.yaml for roots (e.g. `from .paths import DATA_DIR`)
+- Always typehint function definitions with modern type syntax (i.e., `str | None` instead of `Optional[str]`)
+- Where applicable, provide in-line documentation for expected data sizes. For example, if manipulating a tensor, comment `#30x20x2` or however big it is, and track it throughout the function.
 
 ## Project management:
+
 ### Basics
-(0) Basic infrastructure (Anthony - not started)
+(0) Basic infrastructure (Anthony 1.0)
 - References (e.g. canonical protein reference), caching, path management
 
 (0a) Visualization (ChatGPT lol - not started)
 - Protein rotation gifs with proposed mutations highlighted (most protein sim software can do this)
 
 ### Mutation Selection
-(1) Deep mutational scanning via TemStaPro model (Not assigned)
+(1) Deep mutational scanning via TemStaPro model (Anthony)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability 
 
-(2) BLAST API wrapper (Vaishnavi - not started)
+(2) BLAST API wrapper (Gauri - not started)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: list[str] of homologous BglB enzyme sequences
 
-(3a) IQ-TREE ModelFinder wrapper (Not assigned)
+(3a) IQ-TREE ModelFinder wrapper (Gauri 1.0)
 - Inputs: list[str] of homologous BglB enzyme sequences
 - Outputs: (type unknown) amino-acid substitution model for use with ASR
 
