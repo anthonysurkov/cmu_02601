@@ -1,0 +1,5 @@
+
+class Node:
+    def __init__(self, sequence: str, children: list[Node | str] | None = None):
+        self.sequence = sequence
+        self.children = children if children is not None else []
