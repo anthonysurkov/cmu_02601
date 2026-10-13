@@ -1,3 +1,4 @@
+from __future__ import annotations
 
 class Node:
     def __init__(self, sequence: str, children: list[Node | str] | None = None):
