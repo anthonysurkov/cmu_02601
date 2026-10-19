@@ -24,7 +24,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Protein rotation gifs with proposed mutations highlighted (most protein sim software can do this)
 
 ### Mutation Selection
-(1a) ...if possible, fine-tuning of TemStaPro or similar model on BglB Tm data
+(1a) ...if possible, fine-tuning of TemStaPro or similar model on BglB Tm data (Anushka)
 - Inputs: Tm data from Bglb CSV
 - Output: model weights for thermostability estimation + function to evaluate on a given sequence
 
