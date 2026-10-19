@@ -24,7 +24,11 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Protein rotation gifs with proposed mutations highlighted (most protein sim software can do this)
 
 ### Mutation Selection
-(1) Deep mutational scanning via TemStaPro model (Anthony)
+(1a) ...if possible, fine-tuning of TemStaPro or similar model on BglB Tm data
+- Inputs: Tm data from Bglb CSV
+- Output: model weights for thermostability estimation + function to evaluate on a given sequence
+
+(1b) Deep mutational scanning via (1a)'s model (Anthony)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability 
 
