@@ -36,7 +36,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Inputs: list[str] of homologous BglB enzyme sequences
 - Outputs: (type unknown) amino-acid substitution model for use with ASR
 
-(3b) ASR (Anushka - not started)
+(3b) ASR (Anushka 1.0)
 - Inputs: list[str] of homologous BglB enzyme sequences, amino-acid substitution model
 - Outputs: list[Node | str] of extant and ancestral BglB enzyme sequences (flattened from tree)
 
