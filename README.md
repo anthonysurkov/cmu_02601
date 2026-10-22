@@ -48,7 +48,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: list[str] of extant and ancestral BglB enzyme sequences
 - Outputs: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 
-(4a) Alignment decision algorithm (Vaishnavi - not started)
+(4a) Alignment decision algorithm (Vaishnavi 1.0)
 - Takes: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 - Outputs: dict[int, str] of all positions strongly conserved in ASR (residue agreement within some parameter theta)
 
@@ -57,7 +57,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Outputs: dict[int, str] of cross-referenced mutations thought to be viable for both thermostability and ASR
 
 ### Machine Learning
-(6) Feature modules (Anthony - not started)
+(6) Feature modules (Anthony 1.0)
 - Takes: Downloaded CSV from D2D database OR proposed mutations from (5)
 - Outputs: Feature cache of ProtBERT descriptors per protein sequence provided
 
