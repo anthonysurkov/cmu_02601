@@ -57,7 +57,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Outputs: dict[int, str] of cross-referenced mutations thought to be viable for both thermostability and ASR
 
 ### Machine Learning
-(6) Feature modules (Anthony - not started)
+(6) Feature modules (Anthony 1.0)
 - Takes: Downloaded CSV from D2D database OR proposed mutations from (5)
 - Outputs: Feature cache of ProtBERT descriptors per protein sequence provided
 

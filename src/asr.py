@@ -18,10 +18,11 @@ Requires iqtree2 to be installed in environment:
 from pathlib import Path
 import subprocess
 from node import Node
+import sys
 
 
-fasta_path = Path("homologous_bglb_sequences.fasta")
-output_dir = Path("iqtree_output")
+fasta_path = ""
+output_dir = ""
 
 
 def create_fasta(sequences: list[str]) -> None:
@@ -171,8 +172,23 @@ def build_tree(node_dict: dict[str, str],
 
 
 if __name__ == "__main__":
+
+    '''
+    Expects four arguments through command line:
+        sys.argv[1] = list of sequences (could be a file, will work on file
+                      parsing once (2) is implemented)
+        sys.argv[2] = model type, string
+        sys.argv[3] = filename of generated FASTA with homologous sequences
+        sys.argv[4] = directory of generated iqtree output
+    '''
+
+    homo_seq = sys.argv[1] # or pass it into a file parsing function
+    model_type = sys.argv[2]
+    fasta_path = Path(sys.argv[3])
+    output_dir = Path(sys.argv[4])
+
     # Test placeholders for now, will get rid of later
-    test_hom = ["MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVNTD",
+    homo_seq = ["MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVNTD",
         "MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVNTE",
         "MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVSTD",
         "MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVSTE",
@@ -180,8 +196,10 @@ if __name__ == "__main__":
         "MKKLAVVLAGASVAGSAFAAPVNTTQKLEQALKKAGVEVVNAE"
     ]
     model_type = "LG"
+    fasta_path = Path("homologous_bglb_sequences.fasta")
+    output_dir = Path("iqtree_output")
 
-    create_fasta(test_hom)
+    create_fasta(homo_seq)
     run_iqtree(model_type)
     seqs = extract_sequences()
-    output = build_tree(seqs, test_hom)
+    output = build_tree(seqs, homo_seq)
