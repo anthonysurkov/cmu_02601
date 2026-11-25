@@ -25,7 +25,6 @@ def find_model(sequences, workdir="modelfinder_out"):
             f.write(">seq" + str(i) + "\n")
             f.write(seq.strip().upper() + "\n")
 
-
     #blast results are different lengths 
     #need to align, using mafft since modelfinder needs all same length 
     with open(aln_file, "w") as out:
@@ -41,17 +40,13 @@ def find_model(sequences, workdir="modelfinder_out"):
         "--redo",                # overwrite old results if we run it again
     ], check=True)
 
-    # 4. read the report file and find the line with the winning model on it.
-    #    The line looks like: "Best-fit model according to BIC: LG+F+I+G4"
+    #  parse report file to find the line with the winning model on it.
+    #  The line looks like: "Best-fit model according to BIC: LG+F+I+G4"
     with open(prefix + ".iqtree") as f:
         for line in f:
             if "Best-fit model according to" in line:
                 model = line.split(":")[1].strip()
                 return model
-
-    # if we get here something went wrong
-    raise RuntimeError("Couldn't find the best-fit model. Check " + prefix + ".log")
-
 
 # testing 
 if __name__ == "__main__":
