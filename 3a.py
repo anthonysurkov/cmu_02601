@@ -49,10 +49,6 @@ def find_model(sequences, workdir="modelfinder_out"):
                 model = line.split(":")[1].strip()
                 return model
 
-    # if we get here something went wrong
-    raise RuntimeError("Couldn't find the best-fit model. Check " + prefix + ".log")
-
-
 # testing 
 if __name__ == "__main__":
     test_seqs = [
