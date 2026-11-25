@@ -2,4 +2,5 @@ paths:
   data_dir: "data"
   cache_dir: "data/cache"
   hom_seq: "homologous_bglb_sequences.fasta"
-  iqtree_output: "iqtree_output"
+  iqtree_output: "data/iqtree_output"
+  ref_dir: "ref"

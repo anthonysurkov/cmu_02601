@@ -6,7 +6,7 @@ with open("config.yaml") as f:
 
 # config.yaml root
 DATA_DIR = Path(cfg["paths"]["data_dir"])
+REF_DIR = Path(cfg["paths"]["ref_dir"])
 CACHE_DIR = Path(cfg["paths"]["cache_dir"])
 HOM_SEQ = Path(cfg["paths"]["hom_seq"])
 IQTREE_OUTPUT = Path(cfg["paths"]["iqtree_output"])
-
