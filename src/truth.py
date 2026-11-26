@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 import torch
+import numpy as np
 from sklearn.model_selection import KFold, train_test_split
 
 from .features import get_protbert_dict
@@ -52,6 +53,21 @@ class BglBSubset(torch.utils.data.Dataset):
             ),
             "protbert": self.protbert_dict[row["seq"]]
         }
+
+    def to_numpy(self, target: str = "tm") -> tuple[np.ndarray, np.ndarray]:
+        """Written by a GPT model.
+        Return mean-pooled protein features and the requested target.
+        """
+        X = np.stack([
+            self.protbert_dict[seq]
+            .detach()
+            .mean(dim=0)
+            .cpu()
+            .numpy()
+            for seq in self.df["seq"]
+        ])
+        y = self.df[target].to_numpy(dtype=np.float32)
+        return X, y
 
 
 class BglBRepository:
@@ -156,22 +172,32 @@ class BglBRepository:
 
     def yield_train_val_folds(
         self,
+        test_size: float = 0.20,
         n_splits: int = 5
     ) -> Iterator[dict[str, BglBSubset]]:
         """Provides n_split train-val folds of the data as BglBSubsets."""
+        df, test = train_test_split(
+            self.df,
+            test_size=test_size,
+            random_state=self.seed
+        )
         folds = KFold(
             n_splits=n_splits,
             shuffle=True,
             random_state=self.seed
         )
-        for train_idx, val_idx in folds.split(self.df):
+        for train_idx, val_idx in folds.split(df):
             yield {
                 "train": BglBSubset(
-                    self.df.iloc[train_idx],
+                    df.iloc[train_idx],
                     self.protbert_dict
                 ),
                 "val": BglBSubset(
-                    self.df.iloc[val_idx],
+                    df.iloc[val_idx],
+                    self.protbert_dict
+                ),
+                "test": BglBSubset(
+                    test,
                     self.protbert_dict
                 )
             }
