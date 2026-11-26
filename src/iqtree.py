@@ -19,7 +19,7 @@ def find_model(sequences, workdir="modelfinder_out"):
     aln_file = os.path.join(workdir, "aligned.fasta")
     prefix = os.path.join(workdir, "run")
 
-    #  writing the sequences out to a FASTA file
+    #  writing the sequences out to a FASTA file with placeholders 
     with open(raw_file, "w") as f:
         for i, seq in enumerate(sequences):
             f.write(">seq" + str(i) + "\n")
@@ -45,7 +45,7 @@ def find_model(sequences, workdir="modelfinder_out"):
     with open(prefix + ".iqtree") as f:
         for line in f:
             if "Best-fit model according to" in line:
-                model = line.split(":")[1].strip()
+                model = line.split(":")[1].strip() #take text after colon 
                 return model
 
 # testing 
