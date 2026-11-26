@@ -7,6 +7,7 @@ from Bio import SeqIO
 from Bio.Blast import NCBIWWW, NCBIXML
 
 from .paths import DATA_DIR, CACHE_DIR
+from .utils import read_fasta
 
 
 BLAST_PROGRAM = "blastp" #protein against protein
@@ -82,12 +83,6 @@ def get_homologs(sequence: str, use_cache: bool = True) -> list[str]:
     print(f"kept {len(homologs)} hits out of {MAX_HITS}.")
 
     return [sequence] + homologs
-
-
-# reading in a fasta file and getting the seq as a string
-def read_fasta(fasta_path: Path) -> str:
-    record = SeqIO.read(fasta_path, "fasta")
-    return str(record.seq)
 
 
 if __name__ == "__main__":
