@@ -4,7 +4,7 @@
 # Input:  list of homologous BglB sequences (strings)
 # Output: the name of the best amino-acid substitution model, e.g. "LG+F+I+G4"
 
-# had to install iqtree2 and mafft  
+# had to install iqtree2 and mafft
 
 import subprocess
 import os

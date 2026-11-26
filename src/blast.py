@@ -14,7 +14,7 @@ BLAST_DATABASE = "swissprot"  #chosen dataset which is one half of uniprot
 MAX_HITS = 250  # blast query over database for BgIB homologs retreives 250 hits 
 E_VALUE_CUTOFF = 1e-10  # strict setting to only get the good matches 
 MIN_IDENTITY = 0.35 # a hit must match your BglB at 35% of aligned positions 
-CACHE_DIR = DATA_DIR / "blast"
+CACHE_DIR = DATA_DIR / "blast" 
 
 
 #creating filename with residues and seq length 
@@ -33,9 +33,8 @@ def _run_blast(sequence: str, cache_path: Path) -> None:
         expect=E_VALUE_CUTOFF,
     )
 
-    cache_path.parent.mkdir(parents=True, exist_ok=True)
-    with open(cache_path, "w") as out_file:
-        out_file.write(result_handle.read())
+    cache_path.parent.mkdir(parents=True, exist_ok=True) #makes directory 
+    cache_path.write_text(result_handle.read()) #writes string and then closes it
     result_handle.close()
 
 
@@ -53,7 +52,7 @@ def _parse_blast(cache_path: Path) -> list[str]:
     sequences = []  # grows to at most MAX_HITS
 
     with open(cache_path) as xml_file: #loading the file 
-        record = next(NCBIXML.parse(xml_file))
+        record = NCBIXML.read(xml_file) 
 
     for alignment in record.alignments:  # up to 250 alignments
         hsp = alignment.hsps[0]  # best scoring local alignment only
@@ -78,20 +77,20 @@ def get_homologs(sequence: str, use_cache: bool = True) -> list[str]:
         _run_blast(sequence, cache_path)
 
     homologs = _parse_blast(cache_path) 
-    print(f"kept {len(homologs)} hits out of {MAX_HITS} requested.")
+    print(f"kept {len(homologs)} hits out of {MAX_HITS}.")
 
     return [sequence] + homologs
 
 
 #reading in a fasta file and getting the seq as a string 
 def read_fasta(fasta_path: Path) -> str:
-    record = next(SeqIO.parse(fasta_path, "fasta"))
+    record = SeqIO.read(fasta_path, "fasta") 
     return str(record.seq)
 
 
 if __name__ == "__main__":
     canonical = read_fasta(DATA_DIR / "bglb_canonical.fasta") #reading reference file 
-    print(f"Query length: {len(canonical)} residues.") #checking to make sure residues are around 400-500
+    print(f"Query length: {len(canonical)} residues") #checking to make sure residues are around 400-500
 
     results = get_homologs(canonical)
     print(f"Total sequences for ASR: {len(results)}") #running full pipeline and getting final count 
