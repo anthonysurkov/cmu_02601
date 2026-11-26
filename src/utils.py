@@ -26,13 +26,13 @@ def generate_uid(strings: pd.Series) -> str:
     name = json.dumps(strings.tolist())
     return str(uuid5(NAMESPACE_URL, name))
 
-def _get_bglb_wt(ref_fasta: Path = REF_DIR / "bglb.fasta") -> str:
+def get_bglb_wt(ref_fasta: Path = REF_DIR / "bglb.fasta") -> str:
     with open(ref_fasta) as f:
         lines = f.readlines()
         return lines[1].strip().upper()
 
 def mutation_to_seq(mutation_name: str) -> str:
-    bglb_wt: str = _get_bglb_wt()
+    bglb_wt: str = get_bglb_wt()
 
     if mutation_name == "WT":
         return bglb_wt
