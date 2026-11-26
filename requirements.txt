@@ -1,0 +1,13 @@
+# Python 3.10+ (3.11+ preferred)
+biopython
+joblib
+matplotlib
+numpy
+pandas
+PyYAML
+scikit-learn>=1.6.1
+scipy
+torch
+tqdm
+transformers
+xgboost
