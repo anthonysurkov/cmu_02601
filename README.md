@@ -28,7 +28,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Inputs: Tm data from Bglb CSV
 - Output: model weights for thermostability estimation + function to evaluate on a given sequence
 
-(1b) Deep mutational scanning via (1a)'s model (Anthony - NONE)
+(1b) Deep mutational scanning via (1a)'s model (Anthony - OK 1.0)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability
 
@@ -65,7 +65,7 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 - Takes: Feature cache from (6)
 - Outputs: normalized torch.utils.data.Dataset objects for model training, canonical train/test splits
 
-(8) Training & eval modules (Vaishnavi - NA)
+(8) Training & eval modules (Vaishnavi - OK 1.0)
 - Takes: torch.utils.data.Dataset objects
 - Outputs: XGBoost (or other) models (.pt)
 
