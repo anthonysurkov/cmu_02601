@@ -17,59 +17,59 @@ Anthony Surkov, Anushka Shome, Gauri Chasia, Vaishnavi Venuturimilli
 ## Project management:
 
 ### Basics
-(0) Basic infrastructure (Anthony 1.0)
+(0) Basic infrastructure (Anthony - OK 1.1)
 - References (e.g. canonical protein reference), caching, path management
 
-(0a) Visualization (ChatGPT lol - not started)
+(0a) Visualization (ChatGPT - NONE)
 - Protein rotation gifs with proposed mutations highlighted (most protein sim software can do this)
 
 ### Mutation Selection
-(1a) ...if possible, fine-tuning of TemStaPro or similar model on BglB Tm data (Anushka)
+(1a) ...if possible, fine-tuning of TemStaPro or similar model on BglB Tm data (Anushka - OK 1.0)
 - Inputs: Tm data from Bglb CSV
 - Output: model weights for thermostability estimation + function to evaluate on a given sequence
 
-(1b) Deep mutational scanning via (1a)'s model (Anthony)
+(1b) Deep mutational scanning via (1a)'s model (Anthony - NONE)
 - Inputs: str of canonical BglB enzyme sequence
-- Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability 
+- Outputs: dict[int, str] of all mutation positions and new amino acids that are predicted to increase thermostability
 
-(2) BLAST API wrapper (Gauri - not started)
+(2) BLAST API wrapper (Gauri - OK 1.0)
 - Inputs: str of canonical BglB enzyme sequence
 - Outputs: list[str] of homologous BglB enzyme sequences
 
-(3a) IQ-TREE ModelFinder wrapper (Gauri 1.0)
+(3a) IQ-TREE ModelFinder wrapper (Gauri - OK 1.0)
 - Inputs: list[str] of homologous BglB enzyme sequences
 - Outputs: (type unknown) amino-acid substitution model for use with ASR
 
-(3b) ASR (Anushka 1.0)
+(3b) ASR (Anushka - OK 1.0)
 - Inputs: list[str] of homologous BglB enzyme sequences, amino-acid substitution model
 - Outputs: list[Node | str] of extant and ancestral BglB enzyme sequences (flattened from tree)
 
-(4) Alignment (Anthony - not started)
+(4) Alignment (Anthony - OK 1.0)
 - Takes: list[str] of extant and ancestral BglB enzyme sequences
 - Outputs: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 
-(4a) Alignment decision algorithm (Vaishnavi 1.0)
+(4a) Alignment decision algorithm (Vaishnavi - OK 1.0)
 - Takes: list[str] of aligned sequences, list[float] of agreement between residues across aligned sequences
 - Outputs: dict[int, str] of all positions strongly conserved in ASR (residue agreement within some parameter theta)
 
-(5) Final decision algorithm (Vaishnavi - not started)
+(5) Final decision algorithm (Vaishnavi - OK 1.0)
 - Takes: dict[int, str] of all mutation positions and amino acids, dict[int, str] of conserved positions
 - Outputs: dict[int, str] of cross-referenced mutations thought to be viable for both thermostability and ASR
 
 ### Machine Learning
-(6) Feature modules (Anthony 1.0)
+(6) Feature modules (Anthony - OK 1.0)
 - Takes: Downloaded CSV from D2D database OR proposed mutations from (5)
 - Outputs: Feature cache of ProtBERT descriptors per protein sequence provided
 
-(7) D2D BglB database truth-modules (Anthony - not started)
+(7) D2D BglB database truth-modules (Anthony - OK 1.0)
 - Takes: Feature cache from (6)
 - Outputs: normalized torch.utils.data.Dataset objects for model training, canonical train/test splits
 
-(8) Training & eval modules (Vaishnavi (if anyone else wants to join on this and debate models w me) - not started)
+(8) Training & eval modules (Vaishnavi - NA)
 - Takes: torch.utils.data.Dataset objects
 - Outputs: XGBoost (or other) models (.pt)
 
-(9) Plotting modules (Anushka - not started)
+(9) Plotting modules (Anushka - OK 1.0)
 - Takes: y_val, y vectors from Downloaded CSV, (8)'s model predictions
 - Outputs: Scatterplots of model performance; model diagnostics
 
